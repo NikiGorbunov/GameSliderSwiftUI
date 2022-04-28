@@ -55,9 +55,9 @@
 			children = (
 				CD7BE506281B1E35006B0537 /* GameSliderSwiftUIApp.swift */,
 				CD7BE508281B1E35006B0537 /* ContentView.swift */,
+				CD7BE514281B1EC4006B0537 /* DecimalSlider.swift */,
 				CD7BE50A281B1E37006B0537 /* Assets.xcassets */,
 				CD7BE50C281B1E37006B0537 /* Preview Content */,
-				CD7BE514281B1EC4006B0537 /* DecimalSlider.swift */,
 			);
 			path = GameSliderSwiftUI;
 			sourceTree = "<group>";
