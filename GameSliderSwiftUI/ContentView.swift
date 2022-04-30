@@ -19,7 +19,7 @@ struct ContentView: View {
             
             HStack {
                 Text("0")
-                DecimalSlider(SliderValue: $currentValue, alphaThumb: getAlpha())
+                DecimalSlider(sliderValue: $currentValue, alphaThumb: getAlpha())
                     .onChange(of: currentValue){ newValue in
                         currentValue = newValue
                     }
@@ -29,7 +29,7 @@ struct ContentView: View {
                 Text("100")
             }
             Button("Проверь меня") {
-                showAlert()
+                alertIsPresented.toggle()
             }
             Button("Начать заново") {
                 targetValue = Int.random(in: 0...100)
@@ -51,10 +51,6 @@ extension ContentView {
     
     private func getAlpha() -> CGFloat {
         CGFloat(Double(computeScore()) / 100.0)
-    }
-    
-    private func showAlert() {
-        alertIsPresented.toggle()
     }
 }
 

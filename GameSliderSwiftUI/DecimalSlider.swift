@@ -9,12 +9,12 @@ import SwiftUI
 
 struct DecimalSlider: UIViewRepresentable {
     
-    @Binding var SliderValue: Float
+    @Binding var sliderValue: Float
     let alphaThumb: CGFloat
     
     func makeUIView(context: Context) -> UISlider {
         let sliderView = UISlider()
-        sliderView.minimumValue = 0
+        sliderView.minimumValue = 1
         sliderView.maximumValue = 100
         sliderView.backgroundColor = .gray
         sliderView.tintColor = .black
@@ -23,19 +23,19 @@ struct DecimalSlider: UIViewRepresentable {
         sliderView.addTarget(
             context.coordinator,
             action: #selector(Coordinator.setSliderValue),
-            for: .allTouchEvents
+            for: .valueChanged
         )
         
         return sliderView
     }
     
     func updateUIView(_ uiView: UISlider, context: Context) {
-        uiView.value = SliderValue
+        uiView.value = sliderValue
         uiView.thumbTintColor = .red.withAlphaComponent(alphaThumb)
     }
     
     func makeCoordinator() -> Coordinator {
-        Coordinator(value: $SliderValue)
+        Coordinator(value: $sliderValue)
     }
 }
 
@@ -55,6 +55,6 @@ extension DecimalSlider {
 
 struct DecimalSlider_Previews: PreviewProvider {
     static var previews: some View {
-        DecimalSlider(SliderValue: .constant(50), alphaThumb: 0.5)
+        DecimalSlider(sliderValue: .constant(50), alphaThumb: 0.5)
     }
 }
